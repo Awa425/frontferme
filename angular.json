@@ -31,12 +31,23 @@
             "aot": true,
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
-              "src/styles.scss",
-              "node_modules/bootstrap/dist/css/bootstrap.min.css"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
+              "src/styles.scss"
             ],
             "scripts": [
-              "node_modules/jquery/dist/jquery.js",
-              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+              
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/popper.min.js",
+              "src/assets/js/bootstrap.min.js",
+              "src/assets/js/owl.carousel.min.js",
+              "src/assets/js/classynav.js",
+              "src/assets/js/wow.min.js",
+              "src/assets/js/jquery.sticky.js",
+              "src/assets/js/jquery.magnific-popup.min.js",
+              "src/assets/js/jquery.scrollup.min.js",
+              "src/assets/js/jarallax.min.js",
+              "src/assets/js/jarallax-video.min.js",
+              "src/assets/js/active.js"
             ]
           },
           "configurations": {
