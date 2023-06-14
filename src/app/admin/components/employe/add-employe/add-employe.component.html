@@ -1,0 +1,76 @@
+<br /><br /><br /><br />
+<div class="container">
+  <div class="text-center">
+    <h4>Add Employe</h4>
+  </div>
+  <form class="col-md-9 ml-5">
+    <div class="">
+      <label>ID Employe</label>
+      <input
+        type="text"
+        [(ngModel)]="newEmploye.id"
+        name="idEmploye"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Nom Employe</label>
+      <input
+        type="text"
+        [(ngModel)]="newEmploye.nom"
+        name="nomEmploye"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Adresse</label>
+      <input
+        type="text"
+        [(ngModel)]="newEmploye.adresse"
+        name="adresse"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Pays</label>
+      <input
+        type="text"
+        [(ngModel)]="newEmploye.pays"
+        name="pays"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Telephone</label>
+      <input
+        type="text"
+        [(ngModel)]="newEmploye.telephone"
+        name="telephone"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Etat</label>
+      <input
+        type="text"
+        [(ngModel)]="newEmploye.isEtat"
+        name="telephone"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Date création</label>
+      <input
+        type="date"
+        [(ngModel)]="newEmploye.dateCreation"
+        name="dateCreation"
+        class="form-control"
+      />
+    </div>
+    <div class="mt-4">
+      <button type="submit" (click)="addEmploye()" class="btn btn-success">
+        Ajouter
+      </button>
+    </div>
+  </form>
+</div>

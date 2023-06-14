@@ -1,0 +1,50 @@
+<br /><br /><br /><br /><br />
+<div>
+  <button
+    type="button"
+    routerLink="/admin/employes/add"
+    class="btn btn-warning float-right mr-3"
+  >
+    Add employe
+  </button>
+</div>
+<div class="container">
+  <h2 style="text-align: center">employes Manager</h2>
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <tr>
+          <th>Id</th>
+          <th>Nom</th>
+          <th>Prenom</th>
+          <th>Adresse</th>
+          <th>Pays</th>
+          <th>Telephone</th>
+          <th>Matricule</th>
+          <th>Date</th>
+          <th style="text-align: center">Actions</th>
+        </tr>
+        <tbody *ngFor="let employe of employes">
+          <tr>
+            <td>{{ employe.id }}</td>
+            <td>{{ employe.nom }}</td>
+            <td>{{ employe.prenom }}</td>
+            <td>{{ employe.adresse }}</td>
+            <td>{{ employe.pays }}</td>
+            <td>{{ employe.telephone }}</td>
+            <td>{{ employe.matricule }}</td>
+            <td>{{ employe.dateCreation | date : "dd/MM/yyyy" }}</td>
+            <td>
+              <a
+                [routerLink]="['/admin/employes/update', employe.id]"
+                class="link-warning mr-2"
+                >Modifier</a
+              >
+              <a class="link-danger" (click)="deleteEmploye(employe)">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

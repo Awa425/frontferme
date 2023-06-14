@@ -1,0 +1,103 @@
+<br /><br /><br /><br />
+<div class="container">
+  <div class="text-center">
+    <h4>Add Veterinaire</h4>
+  </div>
+  <form class="col-md-9 ml-5">
+    <div class="">
+      <label>ID</label>
+      <input
+        type="text"
+        [(ngModel)]="newVeterinaire.id"
+        name="idVeterinaire"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Nom Veterinaire</label>
+      <input
+        type="text"
+        [(ngModel)]="newVeterinaire.nom"
+        name="nomVeterinaire"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Prenom Veterinaire</label>
+      <input
+        type="text"
+        [(ngModel)]="newVeterinaire.prenom"
+        name="prenomVeterinaire"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Login Veterinaire</label>
+      <input
+        type="text"
+        [(ngModel)]="newVeterinaire.login"
+        name="loginVeterinaire"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>password Veterinaire</label>
+      <input
+        type="text"
+        [(ngModel)]="newVeterinaire.password"
+        name="passwordVeterinaire"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Adresse</label>
+      <input
+        type="text"
+        [(ngModel)]="newVeterinaire.adresse"
+        name="adresse"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Pays</label>
+      <input
+        type="text"
+        [(ngModel)]="newVeterinaire.pays"
+        name="pays"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Telephone</label>
+      <input
+        type="text"
+        [(ngModel)]="newVeterinaire.telephone"
+        name="telephone"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Etat</label>
+      <input
+        type="text"
+        [(ngModel)]="newVeterinaire.isEtat"
+        name="telephone"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Date création</label>
+      <input
+        type="date"
+        [(ngModel)]="newVeterinaire.dateCreation"
+        name="dateCreation"
+        class="form-control"
+      />
+    </div>
+    <div class="mt-4">
+      <button type="submit" (click)="addVeterinaire()" class="btn btn-success">
+        Ajouter
+      </button>
+    </div>
+  </form>
+</div>

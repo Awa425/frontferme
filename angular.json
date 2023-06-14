@@ -32,11 +32,24 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
-              "src/styles.scss"
+              "src/styles.scss",
+              "src/assets/asset/vendor/bootstrap-4.1/bootstrap.min.css",
+              "src/assets/asset/vendor/font-awesome-4.7/css/font-awesome.min.css",
+              "src/assets/asset/vendor/font-awesome-5/css/fontawesome-all.min.css",
+              "src/assets/asset/css/font-face.css",
+              "src/assets/asset/vendor/mdi-font/css/material-design-iconic-font.min.css",
+              "src/assets/asset/vendor/animsition/animsition.min.css",
+              "src/assets/asset/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css",
+              "src/assets/asset/vendor/wow/animate.css",
+              "src/assets/asset/vendor/css-hamburgers/hamburgers.min.css",
+              "src/assets/asset/vendor/slick/slick.css",
+              "src/assets/asset/vendor/select2/select2.min.css",
+              "src/assets/asset/vendor/perfect-scrollbar/perfect-scrollbar.css"
             ],
+
             "scripts": [
-              
-              "src/assets/js/jquery.min.js",
+              "node_modules/sweetalert2/dist/sweetalert2.all.min.js",
+              "node_modules/jquery/dist/jquery.js",
               "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/owl.carousel.min.js",
@@ -47,7 +60,22 @@
               "src/assets/js/jquery.scrollup.min.js",
               "src/assets/js/jarallax.min.js",
               "src/assets/js/jarallax-video.min.js",
-              "src/assets/js/active.js"
+              "src/assets/js/active.js",
+
+              "src/assets/asset/vendor/jquery-3.2.1.min.js",
+              "src/assets/asset/vendor/bootstrap-4.1/popper.min.js",
+              "src/assets/asset/vendor/bootstrap-4.1/bootstrap.min.js",
+              "src/assets/asset/vendor/slick/slick.min.js",
+              "src/assets/asset/vendor/wow/wow.min.js",
+              "src/assets/asset/vendor/animsition/animsition.min.js",
+              "src/assets/asset/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js",
+              "src/assets/asset/vendor/counter-up/jquery.waypoints.min.js",
+              "src/assets/asset/vendor/counter-up/jquery.counterup.min.js",
+              "src/assets/asset/vendor/circle-progress/circle-progress.min.js",
+              "src/assets/asset/vendor/perfect-scrollbar/perfect-scrollbar.js",
+              "src/assets/asset/vendor/chartjs/Chart.bundle.min.js",
+              "src/assets/asset/vendor/select2/select2.min.js",
+              "src/assets/asset/js/main.js"
             ]
           },
           "configurations": {

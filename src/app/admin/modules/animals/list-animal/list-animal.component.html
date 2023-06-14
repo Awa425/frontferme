@@ -1,0 +1,42 @@
+<br /><br /><br /><br /><br />
+<div>
+  <button
+    type="button"
+    routerLink="/admin/animals/add"
+    class="btn btn-warning float-right mr-3"
+  >
+    Add Animal
+  </button>
+</div>
+<div class="container">
+  <h2 style="text-align: center">Animals Manager</h2>
+  <div class="card shadow mb-4">
+    <div class="card-body">
+      <table class="table table-striped">
+        <tr>
+          <th>Id</th>
+          <th>Nom</th>
+          <th>AGe</th>
+          <th>Date Enregistrement</th>
+          <th style="text-align: center">Actions</th>
+        </tr>
+        <tbody *ngFor="let animal of animals">
+          <tr>
+            <td>{{ animal.id }}</td>
+            <td>{{ animal.nom }}</td>
+            <td>{{ animal.age }}</td>
+            <td>{{ animal.dateAt | date : "dd/MM/yyyy" }}</td>
+            <td>
+              <a
+                class="link-warning mr-2"
+                [routerLink]="['/admin/updateAnimal', animal.id]"
+                >Modifier</a
+              >
+              <a class="link-danger" (click)="deleteAnimal(animal)">Delete</a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

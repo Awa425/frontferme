@@ -1,0 +1,107 @@
+<br /><br /><br /><br />
+<div class="container">
+  <div class="text-center">
+    <h4>Update Veterinaire</h4>
+  </div>
+  <form class="col-md-9 ml-5">
+    <div hidden class="">
+      <label>ID</label>
+      <input
+        type="text"
+        [(ngModel)]="curentVeterinaire.id"
+        name="idVeterinaire"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Nom Veterinaire</label>
+      <input
+        type="text"
+        [(ngModel)]="curentVeterinaire.nom"
+        name="nomVeterinaire"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Prenom Veterinaire</label>
+      <input
+        type="text"
+        [(ngModel)]="curentVeterinaire.prenom"
+        name="prenomVeterinaire"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Login Veterinaire</label>
+      <input
+        type="text"
+        [(ngModel)]="curentVeterinaire.login"
+        name="loginVeterinaire"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>password Veterinaire</label>
+      <input
+        type="text"
+        [(ngModel)]="curentVeterinaire.password"
+        name="passwordVeterinaire"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Adresse</label>
+      <input
+        type="text"
+        [(ngModel)]="curentVeterinaire.adresse"
+        name="adresse"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Pays</label>
+      <input
+        type="text"
+        [(ngModel)]="curentVeterinaire.pays"
+        name="pays"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Telephone</label>
+      <input
+        type="text"
+        [(ngModel)]="curentVeterinaire.telephone"
+        name="telephone"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Etat</label>
+      <input
+        type="text"
+        [(ngModel)]="curentVeterinaire.isEtat"
+        name="telephone"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Date création</label>
+      <input
+        type="date"
+        [(ngModel)]="curentVeterinaire.dateCreation"
+        name="dateCreation"
+        class="form-control"
+      />
+    </div>
+    <div class="mt-4">
+      <button
+        type="submit"
+        (click)="updateVeterinaire()"
+        class="btn btn-success"
+      >
+        Ajouter
+      </button>
+    </div>
+  </form>
+</div>

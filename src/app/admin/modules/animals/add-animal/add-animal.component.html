@@ -1,0 +1,49 @@
+<br /><br /><br /><br />
+<div class="container">
+  <div>
+    <h2>Add Animal :</h2>
+  </div>
+  <form class="col-md-9 ml-5">
+    <div class="">
+      <label>ID Animal</label>
+      <input
+        type="text"
+        [(ngModel)]="newAnimal.id"
+        name="idAnimal"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Nom Animal</label>
+      <input
+        type="text"
+        [(ngModel)]="newAnimal.nom"
+        name="nomAnimal"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Age Animal</label>
+      <input
+        type="number"
+        [(ngModel)]="newAnimal.age"
+        name="prixAnimal"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Date création</label>
+      <input
+        type="date"
+        [(ngModel)]="newAnimal.dateAt"
+        name="dateCreation"
+        class="form-control"
+      />
+    </div>
+    <div class="mt-2">
+      <button type="submit" (click)="addAnimal()" class="btn btn-success">
+        Ajouter
+      </button>
+    </div>
+  </form>
+</div>

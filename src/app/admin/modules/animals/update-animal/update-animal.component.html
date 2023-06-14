@@ -1,0 +1,51 @@
+<br /><br /><br />
+
+<div class="container">
+  <div>
+    <h2>Update Animal :</h2>
+  </div>
+  <form class="col-md-9 ml-5">
+    <div hidden class="">
+      <label>ID Animal</label>
+      <input
+        type="text"
+        [(ngModel)]="currentAnimal.id"
+        name="idAnimal"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Nom Animal</label>
+      <input
+        type="text"
+        [(ngModel)]="currentAnimal.nom"
+        name="nomAnimal"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Age Animal</label>
+      <input
+        type="number"
+        [(ngModel)]="currentAnimal.age"
+        name="ageAnimal"
+        class="form-control"
+      />
+    </div>
+    <div class="">
+      <label>Date création</label>
+      <input
+        type="date"
+        [ngModel]="currentAnimal.dateAt | date : 'yyyy-MM-dd'"
+        (ngModelChange)="currentAnimal.dateAt = $event"
+        name="dateCreation"
+        class="form-control"
+      />
+    </div>
+    <div class="mt-2">
+      <button type="submit" (click)="updateAnimal()" class="btn btn-success">
+        Modifer
+      </button>
+    </div>
+  </form>
+</div>
