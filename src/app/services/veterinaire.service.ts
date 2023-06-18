@@ -1,14 +1,23 @@
 import { Injectable } from '@angular/core';
 import { Veterinaire } from '../models/veterinaire.modele';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+
+const httpOptions = {
+  headers: new HttpHeaders({
+    'Content-Type': 'application/json',
+  }),
+};
 
 @Injectable({
   providedIn: 'root',
 })
 export class VeterinaireService {
-  veterinaires: Veterinaire[];
-  veterinaire!: Veterinaire;
+  private apiUrl = 'http://127.0.0.1:8000/api/veterinaires';
+  veterinaires: any[];
+  veterinaire!: any;
 
-  constructor() {
+  constructor(private http: HttpClient) {
     this.veterinaires = [
       {
         id: 1,
@@ -37,17 +46,29 @@ export class VeterinaireService {
     ];
   }
 
-  listVeterinaires() {
-    return this.veterinaires;
+  // listVeterinaires() {
+  //   return this.veterinaires;
+  // }
+  listVeterinaires(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
   }
 
-  addVeterinaire(Veterinaire: Veterinaire) {
-    this.veterinaires.push(Veterinaire);
+  addVeterinaire(veterinaire: any): Observable<any> {
+    return this.http.post<any>(this.apiUrl, veterinaire);
   }
 
-  updateVeterinaire(v: Veterinaire) {
-    this.deleteVeterinaire(v);
-    this.addVeterinaire(v);
+  updateVeterinaire(body: any, id: number): Observable<any> {
+    return this.http.put<any>(this.apiUrl + '/' + id, body);
+  }
+
+  changeEtat(body: any, id: number): Observable<any> {
+    return this.http.put<any>(this.apiUrl + '/' + id, body);
+  }
+
+  detailVeterinaire(id: number): Observable<any> {
+    // this.veterinaire = this.veterinaires.find((p) => p.id == id)!;
+    // return this.veterinaire;
+    return this.http.get<any>(this.apiUrl + '/' + id);
   }
 
   deleteVeterinaire(vet: Veterinaire) {
@@ -63,10 +84,9 @@ export class VeterinaireService {
     }); */
   }
 
-  detailVeterinaire(id: number): Veterinaire {
-    this.veterinaire = this.veterinaires.find((p) => p.id == id)!;
-    return this.veterinaire;
-  }
+  // getOne(id: number): Observable<any> {
+  //   return this.http.get<any>('http://127.0.0.1:8000/api/commandes/' + id);
+  // }
 
   // trierVeterinaire() {
   //   this.veterinaires = this.veterinaires.sort((n1, n2) => {
@@ -78,6 +98,6 @@ export class VeterinaireService {
   //     }
   //     return 0;
   //   });
-    
+
   // }
 }

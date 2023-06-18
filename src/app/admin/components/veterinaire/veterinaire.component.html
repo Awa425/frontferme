@@ -11,40 +11,55 @@
 <div class="container">
   <h2 style="text-align: center">veterinaires Manager</h2>
   <div class="card shadow mb-4">
-    <div class="card-body">
+    <div class="">
       <table class="table table-striped">
-        <tr>
+        <tr style="text-align: center">
           <th>Id</th>
           <th>Nom</th>
           <th>Prenom</th>
+          <th>Etat</th>
           <th>Login</th>
-          <th>Password</th>
           <th>Adresse</th>
           <th>Pays</th>
           <th>Telephone</th>
-          <th>Date</th>
+          <!-- <th>Date</th> -->
           <th style="text-align: center">Actions</th>
         </tr>
         <tbody *ngFor="let veterinaire of veterinaires">
-          <tr>
+          <tr style="text-align: center">
             <td>{{ veterinaire.id }}</td>
             <td>{{ veterinaire.nom }}</td>
             <td>{{ veterinaire.prenom }}</td>
+            <td *ngIf="veterinaire.isEtat == '0'" style="color: red">delete</td>
+            <td *ngIf="veterinaire.isEtat == '1'">exist</td>
             <td>{{ veterinaire.login }}</td>
-            <td>{{ veterinaire.password }}</td>
             <td>{{ veterinaire.adresse }}</td>
             <td>{{ veterinaire.pays }}</td>
             <td>{{ veterinaire.telephone }}</td>
-            <td>{{ veterinaire.dateCreation | date : "dd/MM/yyyy" }}</td>
+            <!-- <td>{{ veterinaire.dateAt | date : "dd/MM/yyyy" }}</td> -->
             <td>
               <a
+                *ngIf="veterinaire.isEtat == '1'"
                 [routerLink]="['/admin/veterinaires/update', veterinaire.id]"
                 class="link-warning mr-2"
                 >Modifier</a
               >
-              <a class="link-danger" (click)="deleteVeterinaire(veterinaire)"
-                >Delete</a
+              <a
+                *ngIf="veterinaire.isEtat == '1'"
+                class="link-danger"
+                type="submit"
+                (click)="changeEtat(veterinaire.id)"
               >
+                Delete
+              </a>
+              <a
+                *ngIf="veterinaire.isEtat == '0'"
+                class="link-danger"
+                type="submit"
+                (click)="activer(veterinaire.id)"
+              >
+                activer
+              </a>
             </td>
           </tr>
         </tbody>

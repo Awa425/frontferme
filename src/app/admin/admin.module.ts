@@ -12,7 +12,7 @@ import { HeaderDesktopComponent } from './components/header-desktop/header-deskt
 import { ListAnimalComponent } from './modules/animals/list-animal/list-animal.component';
 import { AddAnimalComponent } from './modules/animals/add-animal/add-animal.component';
 import { AnimalsModule } from './modules/animals/animals.module';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateAnimalComponent } from './modules/animals/update-animal/update-animal.component';
 import { LoginComponent } from './components/login/login.component';
 import { EmployeComponent } from './components/employe/employe.component';
@@ -22,6 +22,9 @@ import { AddVeterinaireComponent } from './components/veterinaire/add-veterinair
 import { UpdateVeterinaireComponent } from './components/veterinaire/update-veterinaire/update-veterinaire.component';
 import { UpdateUpdateEmployeComponent } from './components/employe/update-update-employe/update-update-employe.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AppRoutingModule } from '../app-routing.module';
 
 @NgModule({
   declarations: [
@@ -44,11 +47,15 @@ import { HttpClientModule } from '@angular/common/http';
     UpdateUpdateEmployeComponent,
   ],
   imports: [
+    BrowserModule,
     CommonModule,
     AdminRoutingModule,
     AnimalsModule,
     FormsModule,
     HttpClientModule,
+    ReactiveFormsModule,
+    BrowserAnimationsModule,
+    AppRoutingModule,
   ],
 })
 export class AdminModule {}

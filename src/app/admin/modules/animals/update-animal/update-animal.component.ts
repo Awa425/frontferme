@@ -19,9 +19,9 @@ export class UpdateAnimalComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.idCurrentAnimal = this.activatedRoute.snapshot.params['id'];
+    // this.idCurrentAnimal = this.activatedRoute.snapshot.params['id'];
     this.currentAnimal = this.animalService.detailAnimal(
-      Number(this.idCurrentAnimal)
+      this.activatedRoute.snapshot.params['id']
     );
   }
 

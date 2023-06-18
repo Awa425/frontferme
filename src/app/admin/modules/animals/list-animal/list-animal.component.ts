@@ -9,13 +9,13 @@ import { AuthService } from 'src/app/services/auth.service';
   styleUrls: ['./list-animal.component.scss'],
 })
 export class ListAnimalComponent implements OnInit {
-  animals!: Animal[];
+  animals!: any[];
 
   constructor(
     private animalService: AnimalServiceService,
     public authService: AuthService
   ) {
-    // this.animals = animalService.listAnimal();
+    this.animals = animalService.listAnimal();
   }
 
   deleteAnimal(animal: Animal) {
@@ -26,10 +26,9 @@ export class ListAnimalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.animalService.listAnimal().subscribe((anims) => {
-      console.log(anims);
-
-      this.animals = anims;
-    });
+    // this.animalService.listAnimal().subscribe((anims) => {
+    //   this.animals = anims;
+    //   console.log(this.animals);
+    // });
   }
 }

@@ -12,7 +12,7 @@ const httpOptions = {
 })
 export class AnimalServiceService {
   apiURL: string = 'http://localhost:8000/api/animals';
-  animals: Animal[];
+  animals: any[];
   animal!: Animal;
 
   constructor(private http: HttpClient) {
@@ -27,10 +27,13 @@ export class AnimalServiceService {
     ];
   }
 
-  listAnimal(): Observable<Animal[]> {
-    return this.http.get<Animal[]>(this.apiURL);
+  // listAnimal(): Observable<any[]> {
+  //   return this.http.get<any[]>(this.apiURL);
 
-    // return this.animals;
+  //   // return this.animals;
+  // }
+  listAnimal() {
+    return this.animals;
   }
 
   addAnimal(animal: Animal) {

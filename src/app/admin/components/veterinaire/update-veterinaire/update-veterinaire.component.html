@@ -4,15 +4,6 @@
     <h4>Update Veterinaire</h4>
   </div>
   <form class="col-md-9 ml-5">
-    <div hidden class="">
-      <label>ID</label>
-      <input
-        type="text"
-        [(ngModel)]="curentVeterinaire.id"
-        name="idVeterinaire"
-        class="form-control"
-      />
-    </div>
     <div class="">
       <label>Nom Veterinaire</label>
       <input
@@ -21,6 +12,9 @@
         name="nomVeterinaire"
         class="form-control"
       />
+      <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+        <div *ngIf="f.nom.errors.required">First name is required</div>
+      </div>
     </div>
     <div class="">
       <label>Prenom Veterinaire</label>
@@ -40,7 +34,7 @@
         class="form-control"
       />
     </div>
-    <div class="">
+    <!-- <div class="">
       <label>password Veterinaire</label>
       <input
         type="text"
@@ -48,7 +42,7 @@
         name="passwordVeterinaire"
         class="form-control"
       />
-    </div>
+    </div> -->
     <div class="">
       <label>Adresse</label>
       <input
@@ -76,15 +70,15 @@
         class="form-control"
       />
     </div>
-    <div class="">
+    <!-- <div class="">
       <label>Etat</label>
       <input
         type="text"
         [(ngModel)]="curentVeterinaire.isEtat"
-        name="telephone"
+        name="isEtat"
         class="form-control"
       />
-    </div>
+    </div> -->
     <div class="">
       <label>Date création</label>
       <input
@@ -100,7 +94,7 @@
         (click)="updateVeterinaire()"
         class="btn btn-success"
       >
-        Ajouter
+        Update
       </button>
     </div>
   </form>

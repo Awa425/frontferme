@@ -3,66 +3,106 @@
   <div class="text-center">
     <h4>Add Veterinaire</h4>
   </div>
-  <form class="col-md-9 ml-5">
-    <div class="">
-      <label>ID</label>
-      <input
-        type="text"
-        [(ngModel)]="newVeterinaire.id"
-        name="idVeterinaire"
-        class="form-control"
-      />
-    </div>
-    <div class="">
+  <form class="col-md-9 ml-5" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
       <label>Nom Veterinaire</label>
       <input
+        [ngClass]="{ 'is-invalid': submitted && f.nom.errors }"
+        ngModel
+        formControlName="nom"
         type="text"
-        [(ngModel)]="newVeterinaire.nom"
-        name="nomVeterinaire"
+        name="nom"
         class="form-control"
       />
+      <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+        <div *ngIf="f.nom.errors.required">Last name is required</div>
+      </div>
     </div>
-    <div class="">
+    <div class="form-group">
       <label>Prenom Veterinaire</label>
       <input
+        [ngClass]="{ 'is-invalid': submitted && f.prenom.errors }"
+        ngModel
+        formControlName="prenom"
         type="text"
-        [(ngModel)]="newVeterinaire.prenom"
-        name="prenomVeterinaire"
+        name="prenom"
         class="form-control"
       />
+      <div *ngIf="submitted && f.prenom.errors" class="invalid-feedback">
+        <div *ngIf="f.prenom.errors.required">First name is required</div>
+      </div>
     </div>
-    <div class="">
+    <div class="form-group">
       <label>Login Veterinaire</label>
       <input
+        [ngClass]="{ 'is-invalid': submitted && f.login.errors }"
+        ngModel
+        formControlName="login"
         type="text"
-        [(ngModel)]="newVeterinaire.login"
-        name="loginVeterinaire"
+        name="login"
         class="form-control"
       />
+      <div *ngIf="submitted && f.login.errors" class="invalid-feedback">
+        <div *ngIf="f.login.errors.required">login name is required</div>
+      </div>
     </div>
-    <div class="">
+    <div class="form-group">
       <label>password Veterinaire</label>
       <input
-        type="text"
-        [(ngModel)]="newVeterinaire.password"
-        name="passwordVeterinaire"
+        [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+        ngModel
+        formControlName="password"
+        type="password"
+        name="password"
         class="form-control"
       />
+      <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+        <div *ngIf="f.password.errors.required">Password is required</div>
+      </div>
     </div>
-    <div class="">
+
+    <div class="form-group">
+      <label>Confirm Password</label>
+      <input
+        type="password"
+        name="confirmPassword"
+        formControlName="confirmPassword"
+        class="form-control"
+        [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }"
+      />
+      <div
+        *ngIf="submitted && f.confirmPassword.errors"
+        class="invalid-feedback"
+      >
+        <div *ngIf="f.confirmPassword.errors.required">
+          Confirm Password is required
+        </div>
+        <div *ngIf="fg.hasError('matching')">
+          Confirm Password does not match
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
       <label>Adresse</label>
       <input
+        [ngClass]="{ 'is-invalid': submitted && f.adresse.errors }"
+        ngModel
+        formControlName="adresse"
         type="text"
-        [(ngModel)]="newVeterinaire.adresse"
         name="adresse"
         class="form-control"
       />
+      <div *ngIf="submitted && f.adresse.errors" class="invalid-feedback">
+        <div *ngIf="f.adresse.errors.required">Adresse is required</div>
+      </div>
     </div>
     <div class="">
       <label>Pays</label>
       <input
+        [ngClass]="{ 'is-invalid': submitted && f.pays.errors }"
+        ngModel
+        formControlName="pays"
         type="text"
-        [(ngModel)]="newVeterinaire.pays"
         name="pays"
         class="form-control"
       />
@@ -70,34 +110,30 @@
     <div class="">
       <label>Telephone</label>
       <input
+        [ngClass]="{ 'is-invalid': submitted && f.telephone.errors }"
+        ngModel
+        formControlName="telephone"
         type="text"
-        [(ngModel)]="newVeterinaire.telephone"
         name="telephone"
         class="form-control"
       />
+      <div *ngIf="submitted && f.telephone.errors" class="invalid-feedback">
+        <div *ngIf="f.telephone.errors.required">Telephone is required</div>
+      </div>
     </div>
-    <div class="">
-      <label>Etat</label>
-      <input
-        type="text"
-        [(ngModel)]="newVeterinaire.isEtat"
-        name="telephone"
-        class="form-control"
-      />
-    </div>
-    <div class="">
+
+    <!-- <div class="">
       <label>Date création</label>
       <input
+        ngModel
+        formControlName="dateAt"
         type="date"
-        [(ngModel)]="newVeterinaire.dateCreation"
-        name="dateCreation"
+        name="dateAt"
         class="form-control"
       />
-    </div>
+    </div> -->
     <div class="mt-4">
-      <button type="submit" (click)="addVeterinaire()" class="btn btn-success">
-        Ajouter
-      </button>
+      <button type="submit" class="btn btn-success">Ajouter</button>
     </div>
   </form>
 </div>
