@@ -48,8 +48,7 @@
             ],
 
             "scripts": [
-              "node_modules/sweetalert2/dist/sweetalert2.all.min.js",
-              "node_modules/jquery/dist/jquery.js",
+              "src/assets/js/jquery.min.js",
               "src/assets/js/popper.min.js",
               "src/assets/js/bootstrap.min.js",
               "src/assets/js/owl.carousel.min.js",
@@ -61,21 +60,9 @@
               "src/assets/js/jarallax.min.js",
               "src/assets/js/jarallax-video.min.js",
               "src/assets/js/active.js",
+              "node_modules/sweetalert2/dist/sweetalert2.all.min.js"
 
-              "src/assets/asset/vendor/jquery-3.2.1.min.js",
-              "src/assets/asset/vendor/bootstrap-4.1/popper.min.js",
-              "src/assets/asset/vendor/bootstrap-4.1/bootstrap.min.js",
-              "src/assets/asset/vendor/slick/slick.min.js",
-              "src/assets/asset/vendor/wow/wow.min.js",
-              "src/assets/asset/vendor/animsition/animsition.min.js",
-              "src/assets/asset/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js",
-              "src/assets/asset/vendor/counter-up/jquery.waypoints.min.js",
-              "src/assets/asset/vendor/counter-up/jquery.counterup.min.js",
-              "src/assets/asset/vendor/circle-progress/circle-progress.min.js",
-              "src/assets/asset/vendor/perfect-scrollbar/perfect-scrollbar.js",
-              "src/assets/asset/vendor/chartjs/Chart.bundle.min.js",
-              "src/assets/asset/vendor/select2/select2.min.js",
-              "src/assets/asset/js/main.js"
+             
             ]
           },
           "configurations": {

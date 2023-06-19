@@ -68,11 +68,54 @@
             <div class="classynav">
               <ul>
                 <li class="active"><a routerLink="/home">Home</a></li>
-                <li><a routerLink="/about">About</a></li>
 
+                <li><a routerLink="/about">About</a></li>
+                <a href="">
+                  <ul class="dropdown">
+                    <a
+                      id="dropdownMenuButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      MENU
+                    </a>
+                    <ul
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton"
+                    >
+                      <a class="dropdown-item" href="#">List of Veterinary</a>
+                      <a class="dropdown-item" href="#">List of farm</a>
+                    </ul>
+                  </ul>
+                </a>
+
+                <a href="">
+                  <ul class="dropdown">
+                    <a
+                      id="dropdownMenuButton"
+                      data-toggle="dropdown"
+                      aria-haspopup="true"
+                      aria-expanded="false"
+                    >
+                      DOCUMENT
+                    </a>
+                    <ul
+                      class="dropdown-menu"
+                      aria-labelledby="dropdownMenuButton"
+                    >
+                      <a class="dropdown-item" href="#">Sensor user</a>
+                      <a class="dropdown-item" href="#">IA user</a>
+                      <a class="dropdown-item" href="#">Disease</a>
+                      <a class="dropdown-item" href="#">Technologie</a>
+                      <a class="dropdown-item" href="#">Docs</a>
+                    </ul>
+                  </ul>
+                </a>
                 <li>
                   <a routerLink="/farmingPratice">Farming Practice</a>
                 </li>
+
                 <li><a routerLink="/news">News</a></li>
                 <li *ngIf="authService.isAdmin()">
                   <a routerLink="/admin/dashboard">Admin page</a>
@@ -99,16 +142,16 @@
                 </li>
               </ul>
               <!-- Search Icon -->
-              <div id="searchIcon">
+              <!-- <div id="searchIcon">
                 <i class="icon_search" aria-hidden="true"></i>
-              </div>
+              </div> -->
               <!-- Cart Icon -->
-              <div id="cartIcon">
+              <!-- <div id="cartIcon">
                 <a href="#">
                   <i class="icon_cart_alt" aria-hidden="true"></i>
                   <span class="cart-quantity">2</span>
                 </a>
-              </div>
+              </div> -->
               <div class="classynav ml-3">
                 <ul class="navbar-nav ml-auto">
                   <li>

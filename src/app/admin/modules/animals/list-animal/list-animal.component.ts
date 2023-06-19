@@ -15,7 +15,7 @@ export class ListAnimalComponent implements OnInit {
     private animalService: AnimalServiceService,
     public authService: AuthService
   ) {
-    this.animals = animalService.listAnimal();
+    // this.animals = animalService.listAnimal();
   }
 
   deleteAnimal(animal: Animal) {
@@ -26,9 +26,9 @@ export class ListAnimalComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.animalService.listAnimal().subscribe((anims) => {
-    //   this.animals = anims;
-    //   console.log(this.animals);
-    // });
+    this.animalService.listAnimal().subscribe((donnee) => {
+      this.animals = donnee['hydra:member'];
+      console.log(this.animals);
+    });
   }
 }

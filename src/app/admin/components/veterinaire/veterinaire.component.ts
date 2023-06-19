@@ -22,7 +22,7 @@ export class VeterinaireComponent implements OnInit {
   ngOnInit(): void {
     this.veterinaireService.listVeterinaires().subscribe((donnee) => {
       this.veterinaires = donnee['hydra:member'];
-      console.log(this.veterinaires);
+      // console.log(this.veterinaires);
     });
   }
 

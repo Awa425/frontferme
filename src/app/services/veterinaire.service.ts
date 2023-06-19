@@ -46,9 +46,6 @@ export class VeterinaireService {
     ];
   }
 
-  // listVeterinaires() {
-  //   return this.veterinaires;
-  // }
   listVeterinaires(): Observable<any> {
     return this.http.get<any>(this.apiUrl);
   }

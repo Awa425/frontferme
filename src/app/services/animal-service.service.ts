@@ -11,9 +11,9 @@ const httpOptions = {
   providedIn: 'root',
 })
 export class AnimalServiceService {
-  apiURL: string = 'http://localhost:8000/api/animals';
+  apiUrl: string = 'http://localhost:8000/api/animals';
   animals: any[];
-  animal!: Animal;
+  animal!: any;
 
   constructor(private http: HttpClient) {
     this.animals = [
@@ -32,8 +32,12 @@ export class AnimalServiceService {
 
   //   // return this.animals;
   // }
-  listAnimal() {
-    return this.animals;
+  // listAnimal() {
+  //   return this.animals;
+  // }
+
+  listAnimal(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
   }
 
   addAnimal(animal: Animal) {
