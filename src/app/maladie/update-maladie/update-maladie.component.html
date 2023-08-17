@@ -1,0 +1,47 @@
+<br /><br /><br /><br />
+<div class="container">
+  <div class="text-center">
+    <h4>Update Veterinaire</h4>
+  </div>
+  <form class="col-md-9 ml-5">
+    <div class="">
+      <label>Name</label>
+      <input
+        type="text"
+        [(ngModel)]="curentMaladie.nom"
+        name="nom"
+        class="form-control"
+      />
+      <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+        <div *ngIf="f.nom.errors.required">name is required</div>
+      </div>
+    </div>
+    <div class="">
+      <label>Type</label>
+      <input
+        type="text"
+        [(ngModel)]="curentMaladie.type"
+        name="type"
+        class="form-control"
+      />
+      <div *ngIf="submitted && f.type.errors" class="invalid-feedback">
+        <div *ngIf="f.type.errors.required">type is required</div>
+      </div>
+    </div>
+    <div class="">
+      <label>Description</label>
+      <input
+        type="text"
+        [(ngModel)]="curentMaladie.description"
+        name="description"
+        class="form-control"
+      />
+      <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+        <div *ngIf="f.description.errors.required">description is required</div>
+      </div>
+    </div>
+    <div class="mt-4">
+      <button type="submit" class="btn btn-success">Update</button>
+    </div>
+  </form>
+</div>

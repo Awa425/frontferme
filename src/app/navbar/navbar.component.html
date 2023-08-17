@@ -84,8 +84,12 @@
                       class="dropdown-menu"
                       aria-labelledby="dropdownMenuButton"
                     >
-                      <a class="dropdown-item" href="#">List of Veterinary</a>
-                      <a class="dropdown-item" href="#">List of farm</a>
+                      <a class="dropdown-item" routerLink="/veterinaires"
+                        >List of Veterinary</a
+                      >
+                      <a class="dropdown-item" routerLink="/fermes"
+                        >List of farm</a
+                      >
                     </ul>
                   </ul>
                 </a>
@@ -98,17 +102,21 @@
                       aria-haspopup="true"
                       aria-expanded="false"
                     >
-                      DOCUMENT
+                      DOCUMENTATION
                     </a>
                     <ul
                       class="dropdown-menu"
                       aria-labelledby="dropdownMenuButton"
                     >
-                      <a class="dropdown-item" href="#">Sensor user</a>
-                      <a class="dropdown-item" href="#">IA user</a>
-                      <a class="dropdown-item" href="#">Disease</a>
+                      <a class="dropdown-item" routerLink="/capteurs"
+                        >Sensor uses</a
+                      >
+                      <a class="dropdown-item" href="#">IA uses</a>
+                      <a class="dropdown-item" routerLink="/maladies"
+                        >Disease</a
+                      >
                       <a class="dropdown-item" href="#">Technologie</a>
-                      <a class="dropdown-item" href="#">Docs</a>
+                      <a class="dropdown-item" href="#">Document</a>
                     </ul>
                   </ul>
                 </a>
@@ -117,48 +125,18 @@
                 </li>
 
                 <li><a routerLink="/news">News</a></li>
-                <li *ngIf="authService.isAdmin()">
+                <li>
                   <a routerLink="/admin/dashboard">Admin page</a>
                 </li>
                 <li>
-                  <a *ngIf="authService.isVeterinaire()" routerLink="/animals"
-                    >Animals</a
-                  >
+                  <a routerLink="/animals">Animals</a>
                 </li>
                 <li><a routerLink="/contact">Contact</a></li>
 
                 <li>
-                  <a *ngIf="!authService.isloggedIn" routerLink="/login"
-                    >Login</a
-                  >
-                </li>
-                <li>
-                  <a
-                    *ngIf="authService.isloggedIn"
-                    routerLink="/home"
-                    (click)="onLogout()"
-                    >Logout</a
-                  >
+                  <a routerLink="/login">Login</a>
                 </li>
               </ul>
-              <!-- Search Icon -->
-              <!-- <div id="searchIcon">
-                <i class="icon_search" aria-hidden="true"></i>
-              </div> -->
-              <!-- Cart Icon -->
-              <!-- <div id="cartIcon">
-                <a href="#">
-                  <i class="icon_cart_alt" aria-hidden="true"></i>
-                  <span class="cart-quantity">2</span>
-                </a>
-              </div> -->
-              <div class="classynav ml-3">
-                <ul class="navbar-nav ml-auto">
-                  <li>
-                    <a class="nav-link">{{ authService.loggedUser }}</a>
-                  </li>
-                </ul>
-              </div>
             </div>
 
             <!-- Navbar End -->
@@ -167,16 +145,6 @@
 
         <!-- Search Form -->
         <div class="search-form">
-          <form action="#" method="get">
-            <input
-              type="search"
-              name="search"
-              id="search"
-              placeholder="Type keywords &amp; press enter..."
-            />
-            <button type="submit" class="d-none"></button>
-          </form>
-          <!-- Close Icon -->
           <div class="closeIcon">
             <i class="fa fa-times" aria-hidden="true"></i>
           </div>

@@ -5,7 +5,6 @@ import { PageContainsComponent } from './components/page-contains/page-contains.
 import { ListAnimalComponent } from './modules/animals/list-animal/list-animal.component';
 import { AddAnimalComponent } from './modules/animals/add-animal/add-animal.component';
 import { UpdateAnimalComponent } from './modules/animals/update-animal/update-animal.component';
-import { LoginComponent } from './components/login/login.component';
 import { EmployeComponent } from './components/employe/employe.component';
 import { AddEmployeComponent } from './components/employe/add-employe/add-employe.component';
 import { VeterinaireComponent } from './components/veterinaire/veterinaire.component';
@@ -59,7 +58,6 @@ const routes: Routes = [
       { path: 'admin/updateAnimal/:id', component: UpdateAnimalComponent },
     ],
   },
-  { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/admin/dashboard', pathMatch: 'full' },
 ];
 

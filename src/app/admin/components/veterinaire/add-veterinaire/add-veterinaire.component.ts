@@ -33,8 +33,7 @@ export class AddVeterinaireComponent implements OnInit {
         prenom: ['', Validators.required],
         login: ['', Validators.required],
         password: ['', Validators.required],
-        confirmPassword: ['', Validators.required],
-
+        confirmPassword: ['', Validators.required], 
         adresse: ['', [Validators.required]],
         pays: ['', [Validators.required]],
         telephone: ['', [Validators.required]],
@@ -51,7 +50,7 @@ export class AddVeterinaireComponent implements OnInit {
       .addVeterinaire(this.addForm.value)
       .subscribe((data) => {
         if (data) {
-          console.log(data);
+          // console.log(data);
           this.router.navigate(['/admin/veterinaires']);
         }
       });

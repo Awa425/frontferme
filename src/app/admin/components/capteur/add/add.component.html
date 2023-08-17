@@ -1,0 +1,50 @@
+<br /><br /><br /><br />
+<div class="container">
+  <div class="text-center">
+    <h4>Add Sensors</h4>
+  </div>
+  <form class="col-md-9 ml-5" [formGroup]="addForm" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label>Sensors name</label>
+      <input
+        [ngClass]="{ 'is-invalid': submitted && f.nom.errors }"
+        formControlName="nom"
+        type="text"
+        name="nom"
+        class="form-control"
+      />
+      <div *ngIf="submitted && f.nom.errors" class="invalid-feedback">
+        <div *ngIf="f.nom.errors.required">Sensors name is required</div>
+      </div>
+    </div>
+    <div class="form-group">
+      <label>Description</label>
+      <textarea
+        [ngClass]="{ 'is-invalid': submitted && f.description.errors }"
+        name="description"
+        id="description"
+        cols="100"
+        rows="10"
+        formControlName="description"
+      ></textarea>
+      <div *ngIf="submitted && f.description.errors" class="invalid-feedback">
+        <div *ngIf="f.description.errors.required">
+          Please add the description
+        </div>
+      </div>
+    </div>
+
+    <!-- File -->
+    <div>
+      <input
+        formControlName="fileDescription"
+        type="file"
+        (change)="onFileSelected($event)"
+        name="fichier"
+      />
+    </div>
+    <div class="mt-4">
+      <button type="submit" class="btn btn-success">Create</button>
+    </div>
+  </form>
+</div>

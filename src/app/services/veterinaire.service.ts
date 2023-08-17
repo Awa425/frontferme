@@ -14,36 +14,36 @@ const httpOptions = {
 })
 export class VeterinaireService {
   private apiUrl = 'http://127.0.0.1:8000/api/veterinaires';
-  veterinaires: any[];
+  // veterinaires: any[];
   veterinaire!: any;
 
   constructor(private http: HttpClient) {
-    this.veterinaires = [
-      {
-        id: 1,
-        nom: 'Dia',
-        prenom: 'Baba',
-        login: 'vet2',
-        password: '123',
-        adresse: 'pikine',
-        pays: 'Senegal',
-        telephone: '002215670000',
-        isEtat: true,
-        dateCreation: new Date('01/14/2011'),
-      },
-      {
-        id: 2,
-        nom: 'Ndiaye',
-        prenom: 'Abdou',
-        login: 'vet3',
-        password: '123',
-        adresse: 'pikine',
-        pays: 'Senegal',
-        telephone: '002215670000',
-        isEtat: true,
-        dateCreation: new Date('01/14/2011'),
-      },
-    ];
+    // this.veterinaires = [
+    //   {
+    //     id: 1,
+    //     nom: 'Dia',
+    //     prenom: 'Baba',
+    //     login: 'vet2',
+    //     password: '123',
+    //     adresse: 'pikine',
+    //     pays: 'Senegal',
+    //     telephone: '002215670000',
+    //     isEtat: true,
+    //     dateCreation: new Date('01/14/2011'),
+    //   },
+    //   {
+    //     id: 2,
+    //     nom: 'Ndiaye',
+    //     prenom: 'Abdou',
+    //     login: 'vet3',
+    //     password: '123',
+    //     adresse: 'pikine',
+    //     pays: 'Senegal',
+    //     telephone: '002215670000',
+    //     isEtat: true,
+    //     dateCreation: new Date('01/14/2011'),
+    //   },
+    // ];
   }
 
   listVeterinaires(): Observable<any> {
@@ -68,18 +68,13 @@ export class VeterinaireService {
     return this.http.get<any>(this.apiUrl + '/' + id);
   }
 
-  deleteVeterinaire(vet: Veterinaire) {
-    const index = this.veterinaires.indexOf(vet, 0);
-    if (index > -1) {
-      this.veterinaires.splice(index, 1);
-    }
     //ou Bien
     /* this.Veterinaires.forEach((cur, index) => {
     if(prod.idVeterinaire === cur.idVeterinaire) {
     this.Veterinaires.splice(index, 1);
     }
     }); */
-  }
+  // }
 
   // getOne(id: number): Observable<any> {
   //   return this.http.get<any>('http://127.0.0.1:8000/api/commandes/' + id);

@@ -1,66 +1,87 @@
 import { Injectable } from '@angular/core';
+import { map } from 'rxjs/operators';
+import { HttpClient } from '@angular/common/http';
 import { User } from '../models/user.model';
 import { Router } from '@angular/router';
+import { BehaviorSubject, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthService {
-  users: User[] = [
-    { login: 'admin1', password: '123', roles: ['ROLE_FERMIER'] },
-    { login: 'employe1', password: '123', roles: ['ROLE_EMPLOYE'] },
-    { login: 'veterinaire1', password: '123', roles: ['ROLE_VETERINAIRE'] },
-  ];
-  public loggedUser!: string;
-  public isloggedIn: Boolean = false;
-  public roles!: string[];
+  apiURL: string = 'http://localhost:8000/api/login_check';
+  private userSubject: BehaviorSubject<any>;
+  public user: Observable<any>;
 
-  constructor(private router: Router) {}
+  // public loggedUser!: string;
+  // public isloggedIn: Boolean = false;
+  // public roles!: string[];
 
-  /*logout*/
+  constructor(private router: Router, private http: HttpClient) {
+    this.userSubject = new BehaviorSubject<any>(
+      JSON.parse(localStorage.getItem('user') || '')
+    );
+    this.user = this.userSubject.asObservable();
+  }
+
+  public get userValue(): any {
+    return this.userSubject.value;
+  }
+
+  login(username: string, password: string) {
+    return this.http
+      .post<any>(this.apiURL, {
+        username,
+        password,
+      })
+      .pipe(
+        map((user) => {
+          // store user details and jwt token in local storage to keep user logged in between page refreshes
+          localStorage.setItem('user', JSON.stringify(user));
+          this.userSubject.next(user);
+          return user;
+        })
+      );
+  }
+
   logout() {
-    this.isloggedIn = false;
-    this.loggedUser = undefined!;
-    this.roles = undefined!;
-    localStorage.removeItem('loggedUser');
-    localStorage.setItem('isloggedIn', String(this.isloggedIn));
+    // remove user from local storage to log user out
+    localStorage.removeItem('user');
+    this.userSubject.next(null);
     this.router.navigate(['/home']);
   }
 
-  /*login*/
-  SignIn(user: User): Boolean {
-    let validUser: Boolean = false;
-    this.users.forEach((curUser) => {
-      if (user.login == curUser.login && user.password == curUser.password) {
-        validUser = true;
-        this.loggedUser = curUser.login;
-        this.isloggedIn = true;
-        this.roles = curUser.roles;
-        localStorage.setItem('loggedUser', this.loggedUser);
-        localStorage.setItem('isloggedIn', String(this.isloggedIn));
-      }
-    });
-    return validUser;
-  }
+  // saveToken(jwt: string) {
+  //   localStorage.setItem('jwt', jwt);
+  //   this.token = jwt;
+  //   this.isloggedIn = true;
+  // }
 
-  isAdmin(): Boolean {
-    if (!this.roles)
-      //this.roles== undefiened
-      return false;
-    return this.roles.indexOf('ROLE_FERMIER') > -1;
-  }
+  // loadToken() {
+  //   this.token = localStorage.getItem('jwt');
+  // }
+  // getToken(): string {
+  //   return this.token;
+  // }
 
-  isEmploye(): Boolean {
-    if (!this.roles)
-      //this.roles== undefiened
-      return false;
-    return this.roles.indexOf('ROLE_EMPLOYE') > -1;
-  }
+  // isAdmin(): Boolean {
+  //   if (!this.roles)
+  //     //this.roles== undefiened
+  //     return false;
+  //   return this.roles.indexOf('ROLE_FERMIER') >= 0;
+  // }
 
-  isVeterinaire(): Boolean {
-    if (!this.roles)
-      //this.roles== undefiened
-      return false;
-    return this.roles.indexOf('ROLE_VETERINAIRE') > -1;
-  }
+  // isEmploye(): Boolean {
+  //   if (!this.roles)
+  //     //this.roles== undefiened
+  //     return false;
+  //   return this.roles.indexOf('ROLE_EMPLOYE') > -1;
+  // }
+
+  // isVeterinaire(): Boolean {
+  //   if (!this.roles)
+  //     //this.roles== undefiened
+  //     return false;
+  //   return this.roles.indexOf('ROLE_VETERINAIRE') > -1;
+  // }
 }

@@ -15,6 +15,11 @@ import { NewsComponent } from './news/news.component';
 import { HomeComponent } from './home/home.component';
 import { FarmingPraticeComponent } from './farming-pratice/farming-pratice.component';
 import { AdminModule } from './admin/admin.module';
+import { MaladieComponent } from './maladie/maladie.component';
+import { AddMaladieComponent } from './maladie/add-maladie/add-maladie.component';
+import { UpdateMaladieComponent } from './maladie/update-maladie/update-maladie.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -29,8 +34,19 @@ import { AdminModule } from './admin/admin.module';
     NewsComponent,
     HomeComponent,
     FarmingPraticeComponent,
+    MaladieComponent,
+    AddMaladieComponent,
+    UpdateMaladieComponent,
+    LoginComponent,
   ],
-  imports: [BrowserModule, AppRoutingModule, AdminModule, HttpClientModule],
+  imports: [
+    BrowserModule,
+    AppRoutingModule,
+    AdminModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })

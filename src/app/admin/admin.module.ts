@@ -14,7 +14,6 @@ import { AddAnimalComponent } from './modules/animals/add-animal/add-animal.comp
 import { AnimalsModule } from './modules/animals/animals.module';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { UpdateAnimalComponent } from './modules/animals/update-animal/update-animal.component';
-import { LoginComponent } from './components/login/login.component';
 import { EmployeComponent } from './components/employe/employe.component';
 import { AddEmployeComponent } from './components/employe/add-employe/add-employe.component';
 import { VeterinaireComponent } from './components/veterinaire/veterinaire.component';
@@ -25,6 +24,11 @@ import { HttpClientModule } from '@angular/common/http';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AppRoutingModule } from '../app-routing.module';
+import { FermeComponent } from './components/ferme/ferme.component';
+import { CapteurComponent } from './components/capteur/capteur.component';
+import { DetailComponent } from './components/capteur/detail/detail.component';
+import { AddComponent } from './components/capteur/add/add.component';
+import { UpdateComponent } from './components/capteur/update/update.component';
 
 @NgModule({
   declarations: [
@@ -38,13 +42,17 @@ import { AppRoutingModule } from '../app-routing.module';
     ListAnimalComponent,
     AddAnimalComponent,
     UpdateAnimalComponent,
-    LoginComponent,
     EmployeComponent,
     AddEmployeComponent,
     VeterinaireComponent,
     AddVeterinaireComponent,
     UpdateVeterinaireComponent,
     UpdateUpdateEmployeComponent,
+    FermeComponent,
+    CapteurComponent,
+    DetailComponent,
+    AddComponent,
+    UpdateComponent,
   ],
   imports: [
     BrowserModule,

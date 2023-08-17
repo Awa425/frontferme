@@ -1,25 +1,42 @@
 import { Injectable } from '@angular/core';
-import Swal from 'sweetalert2';
+import { Router, NavigationStart } from '@angular/router';
+import { Observable, Subject } from 'rxjs';
+// import { Subject } from 'rxjs/Subject';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AlertService {
-  constructor() {}
+  private subject = new Subject<any>();
+  private keepAfterNavigationChange = false;
 
-  confirmDelete() {
-    Swal.fire({
-      title: 'Are you sure?',
-      text: "You won't be able to revert this!",
-      icon: 'warning',
-      showCancelButton: true,
-      confirmButtonColor: '#3085d6',
-      cancelButtonColor: '#d33',
-      confirmButtonText: 'Yes, delete it!',
-    }).then((result) => {
-      if (result.isConfirmed) {
-        Swal.fire('Deleted!', 'Your file has been deleted.', 'success');
-      }
-    });
+  constructor(private router: Router) {
+      // clear alert message on route change
+      router.events.subscribe(event => {
+          if (event instanceof NavigationStart) {
+              if (this.keepAfterNavigationChange) {
+                  // only keep for a single location change
+                  this.keepAfterNavigationChange = false;
+              } else {
+                  // clear alert
+                  this.subject.next();
+              }
+          }
+      });
   }
+
+  success(message: string, keepAfterNavigationChange = false) {
+      this.keepAfterNavigationChange = keepAfterNavigationChange;
+      this.subject.next({ type: 'success', text: message });
+  }
+
+  error(message: string, keepAfterNavigationChange = false) {
+      this.keepAfterNavigationChange = keepAfterNavigationChange;
+      this.subject.next({ type: 'error', text: message });
+  }
+
+  getMessage(): Observable<any> {
+      return this.subject.asObservable();
+  }
+ 
 }

@@ -1,0 +1,84 @@
+<!-- Retour -->
+<div class="famie-breadcrumb">
+  <div class="container">
+    <nav aria-label="breadcrumb">
+      <ol class="breadcrumb">
+        <li class="breadcrumb-item">
+          <a routerLink="/home"><i class="fa fa-home"></i> Home</a>
+        </li>
+        <li class="breadcrumb-item active" aria-current="page">Capteur List</li>
+      </ol>
+    </nav>
+  </div>
+</div>
+
+<!-- btn Add -->
+<div>
+  <button
+    type="button"
+    routerLink="/admin/capteurs/add"
+    class="btn btn-warning float-right mr-3"
+  >
+    Add capteur
+  </button>
+</div>
+<!-- Main -->
+<div>
+  <div class="container">
+    <h2 style="text-align: center">List Capteurs</h2>
+    <div class="card shadow mb-4">
+      <div class="">
+        <table class="table table-striped">
+          <tr style="text-align: center">
+            <th>Id</th>
+            <th>Nom</th>
+            <th>file</th>
+            <th>Etat</th>
+            <!-- <th>Date</th> -->
+            <th style="text-align: center">Actions</th>
+          </tr>
+          <tbody *ngFor="let cap of capteurs">
+            <tr style="text-align: center">
+              <td>{{ cap.id }}</td>
+              <td>{{ cap.nom }}</td>
+              <td>{{ cap.fileDescription }}</td>
+              <td *ngIf="cap.isEtat == 1">disponible</td>
+              <td *ngIf="cap.isEtat == 0">not exist</td>
+
+              <!-- <td>t | date : "dd/MM/yyyy" }}</td> -->
+              <td>
+                <a
+                  *ngIf="cap.isEtat == '1'"
+                  class="link-sucess mr-2"
+                  [routerLink]="['/capteurs/', cap.id]"
+                  >Description</a
+                >
+                <a
+                  *ngIf="cap.isEtat == '1'"
+                  class="link-warning mr-2"
+                  [routerLink]="['/admin/capteurs/update', cap.id]"
+                  >Update</a
+                >
+                <a
+                  type="submit"
+                  class="link-danger mr-2"
+                  (click)="changeEtat(cap.id)"
+                  *ngIf="cap.isEtat == '1'"
+                  >delete</a
+                >
+                <a
+                  *ngIf="cap.isEtat == '0'"
+                  class="link-info"
+                  type="submit"
+                  (click)="activer(cap.id)"
+                >
+                  activer
+                </a>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+</div>

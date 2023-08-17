@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Observable } from 'rxjs';
 import { Veterinaire } from 'src/app/models/veterinaire.modele';
+import { AuthService } from 'src/app/services/auth.service';
 import { VeterinaireService } from 'src/app/services/veterinaire.service';
 
 @Component({
@@ -15,9 +16,9 @@ export class VeterinaireComponent implements OnInit {
 
   constructor(
     private veterinaireService: VeterinaireService,
-    private activatedRoute: ActivatedRoute
-  ) {
-  }
+    private activatedRoute: ActivatedRoute,
+    public authService: AuthService
+  ) {}
 
   ngOnInit(): void {
     this.veterinaireService.listVeterinaires().subscribe((donnee) => {
@@ -26,7 +27,6 @@ export class VeterinaireComponent implements OnInit {
     });
   }
 
- 
   changeEtat(id: number) {
     this.etat = { isEtat: false };
     this.veterinaireService.changeEtat(this.etat, id).subscribe((data) => {
